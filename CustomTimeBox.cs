@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +18,7 @@ namespace QuizApp
             InitializeComponent();
         }
 
+        // Constants and WinAPI function declarations for form dragging.
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -25,6 +26,7 @@ namespace QuizApp
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        // Allows the form to be moved by clicking and dragging on a specific area.
         private void moveableBar_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -34,16 +36,19 @@ namespace QuizApp
             }
         }
 
+        // Minimizes the form when the minimize button is clicked.
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
+        // Closes the form when the close button is clicked.
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Sets the dialog result to OK when the OK button is clicked.
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
