@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +20,7 @@ namespace QuizApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            // Close the form when the close button is clicked
             this.Close();
         }
 
@@ -32,6 +33,7 @@ namespace QuizApp
 
         private void moveableBar_MouseMove(object sender, MouseEventArgs e)
         {
+            // Allow the form to be moved when the top bar is clicked and dragged
             if(e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
@@ -41,16 +43,19 @@ namespace QuizApp
 
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
+            // Minimize the form when the minimize button is clicked
             WindowState = FormWindowState.Minimized;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            // Close the form when the close button is clicked
             this.Close();
         }
 
         private void btnRules_Click(object sender, EventArgs e)
         {
+            // Show the custom message box with game rules when the rules button is clicked
             CustomMessageBox customMessageBox = new CustomMessageBox();
             customMessageBox.ShowDialog();
         }
@@ -58,6 +63,7 @@ namespace QuizApp
         private formGame game_ = null;
         private void btnBegin_Click(object sender, EventArgs e)
         {
+            // Start the game when the begin button is clicked
             if (game_ != null && !game_.IsDisposed)
             {
                 game_.WindowState = FormWindowState.Normal;
