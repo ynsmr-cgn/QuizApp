@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,16 +14,21 @@ namespace QuizApp
         [STAThread]
         static void Main()
         {
-            if(Environment.OSVersion.Version.Major >= 6)
+            // Set process DPI awareness for applications targeting Windows Vista and later.
+            if (Environment.OSVersion.Version.Major >= 6)
             {
                 SetProcessDPIAware();
             }
 
+            // Enable visual styles and set text rendering default for the application.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Run the application by starting with the main form, 'formQuiz'.
             Application.Run(new formQuiz());
         }
 
+        // External method declaration for setting process DPI awareness.
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
     }
